@@ -8,7 +8,7 @@ class Products extends Component {
 
         this.state = {
             trigger: false,
-            brands: undefined
+            products: undefined
         };
     }
 
@@ -16,12 +16,12 @@ class Products extends Component {
         this.setState({ trigger: true} ,() => this.props.triggerNextStep())
     }
 
-    renderBrands() {
-        return this.state.brands.map(brand => {
+    renderProducts() {
+        return this.state.products.map(product => {
            return(
-                <div key={brand.specs} className='category'>
-                    <img className='category-img' src={brand.img}></img>
-                    <p>{brand.display}</p>
+                <div key={product.specs} className='category'>
+                    <img className='category-img' src={product.img}></img>
+                    <p>{product.name}</p>
                 </div>
             )
         })
@@ -29,10 +29,10 @@ class Products extends Component {
 
     componentWillMount() {
         const { steps } = this.props;
-        const { selectCategory } = steps;
-        axios.get('http://localhost:8085/chatbot', {params: { value: selectCategory.value, func: 'brandsAvailable' }})
-             .then(brand => {
-                this.setState({brands: brand.data})
+        const { productTypes } = steps;
+        axios.get('http://localhost:8085/chatbot', {params: { value: productTypes.value, func: 'productChoice' }})
+             .then(product => {
+                this.setState({products: product.data})
             })
     }
 
@@ -41,11 +41,11 @@ class Products extends Component {
     }
 
     render() {
-        if(this.state.brands !== undefined) {
+        if(this.state.products !== undefined) {
             return (
                 <div className="product-details">
-                    <h3>Available Brands</h3>
-                    {this.renderBrands()}
+                    <h3>Type a product to see it's details</h3>
+                    {this.renderProducts()}
                 </div>
             );
         } 
@@ -58,16 +58,16 @@ class Products extends Component {
     }
 }
 
-Brands.propTypes = {
+Products.propTypes = {
     triggerNextStep: PropTypes.func,
 };
 
-Brands.defaultProps = {
+Products.defaultProps = {
     triggerNextStep: undefined,
 
 };
 
-export default Brands;
+export default Products;
 
 
 

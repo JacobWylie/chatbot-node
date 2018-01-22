@@ -130,7 +130,7 @@ const productDetails =
 		},
 		{
 			name: "Bebop 2",
-			specs: 'WiFi, 14 megapixel "fisheye" camera',
+			specs: 'WiFi, 14 megapixel "fisheye" camera, contoller',
 			brand: "Parrot",
 			display: "Parrot",
 			type: 'Drones',
@@ -150,7 +150,7 @@ const productDetails =
 		},
 		{
 			name: "Rift VR",
-			specs: '2160 x 1200, 90Hz, Built-in audio',
+			specs: '2160 x 1200, 90Hz, Built-in audio, HD',
 			brand: "Oculus",
 			display: "Oculus",
 			type: 'Gaming & VR Devices',

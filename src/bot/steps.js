@@ -55,11 +55,6 @@ const steps = [
         id: 'products',
         component: <Products />,
         waitAction: true,
-        trigger: 'productDetails'
-    },
-    {
-        id: 'productDetails',
-        message: ({previousValue}) => helperFunctions.productChoice(previousValue),
         trigger: 'inProductList'
     },
     {

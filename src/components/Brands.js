@@ -44,7 +44,7 @@ class Brands extends Component {
         if(this.state.brands !== undefined) {
             return (
                 <div className="product-details">
-                    <h3>Available Brands</h3>
+                    <h3>Type a brand to see available products</h3>
                     {this.renderBrands()}
                 </div>
             );

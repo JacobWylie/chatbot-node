@@ -45,7 +45,6 @@ const helperFunctions = {
 						}
 						// remove objects from array that share the same brand/display
 						brands = helperFunctions.removeDuplicates(brands, 'display')
-						console.log(brands)
 						return brands;
 					},
 
@@ -62,20 +61,16 @@ const helperFunctions = {
 					},
 
 				   // Returns a list of products based on the type selected. User can select from list to see details	
-	'productChoice': function(previousValue) {
-						let list = [];
-						let value = helperFunctions.lowerCaseNoSpace(previousValue);
-						for(let i=0; i<productDetails.length; i++) {
+	'productChoice': function(value) {
+						value = helperFunctions.lowerCaseNoSpace(value);
+						let products = [];
+						for(let i=1; i<productDetails.length; i++) {
 							let name = helperFunctions.lowerCaseNoSpace(productDetails[i].display);
 							if(value === name) {
-								list.push(productDetails[i].name);
+								products.push(productDetails[i]);
 							}
 						}
-						// compiles string from array to display as message on page
-						let noProduct = `Sorry we don't have any products available from ${previousValue} right now. Please type "back"`;
-						let product = "We can show you product details for the following:";
-						let string = helperFunctions.concactString(list, noProduct, product);
-						return string;
+						return products;
 					},
 
 					// Checks to see if user is trying to see valid project. all other inputs return error
@@ -87,7 +82,7 @@ const helperFunctions = {
 					// Call to server to find a product. If none found sends false back to validator
 	findProduct: function(value) {
 					value = helperFunctions.lowerCaseNoSpace(value);
-					for (let i=0;i<productDetails.length;i++) {
+					for (let i=1;i<productDetails.length;i++) {
 						let tag = helperFunctions.lowerCaseNoSpace(productDetails[i].name);
 						if (tag === value) {
 							return productDetails[i];
