@@ -20,7 +20,7 @@ class Brands extends Component {
         return this.state.brands.map(brand => {
            return(
                 <div key={brand.specs} className='category'>
-                    <img className='category-img' src={brand.img}></img>
+                    <img className='category-img' src={brand.img} alt="brand"></img>
                     <p>{brand.display}</p>
                 </div>
             )

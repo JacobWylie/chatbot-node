@@ -20,7 +20,7 @@ class Categories extends Component {
         return this.state.categories.map(cat => {
            return(
                 <div key={cat.id} className='category'>
-                    <img className='category-img' src={cat.img}></img>
+                    <img className='category-img' src={cat.img} alt="category"></img>
                     <p>{cat.type}</p>
                 </div>
             )
