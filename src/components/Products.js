@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios"
 
-class Brands extends Component {
+class Products extends Component {
     constructor(props) {
         super(props);
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Product from '../components/Product';
 import Categories from '../components/Categories';
 import Brands from '../components/Brands';
+import Products from '../components/Products';
 import helperFunctions from './functions';
 
 const steps = [
@@ -48,7 +49,13 @@ const steps = [
         id: 'productTypes',
         user: true,
         validator: value => helperFunctions.productTypes(value),
-        trigger: ({value}) => value.toLowerCase() === 'back' ? 'back' : 'productDetails'
+        trigger: ({value}) => value.toLowerCase() === 'back' ? 'back' : 'products'
+    },
+    {
+        id: 'products',
+        component: <Products />,
+        waitAction: true,
+        trigger: 'productDetails'
     },
     {
         id: 'productDetails',

@@ -6,7 +6,7 @@ const helperFunctions = {
 	'populateCategories': () => {
 							const catArr = []
 							const catNames = [...new Set(productDetails.map(product => product.type))];
-							catNames.shift()
+							catNames.shift();
 							function Category(type, img, id) {
 								this.type = type;
 								this.img = img;
@@ -26,7 +26,7 @@ const helperFunctions = {
 							for (let i=1;i<productDetails.length;i++) {
 								let cat = helperFunctions.lowerCaseNoSpace(productDetails[i].type)
 								if(value === cat){
-									truthy = true
+									truthy = true;
 									return truthy;
 								}
 							}
@@ -35,45 +35,41 @@ const helperFunctions = {
 
 					 // displays list of available brands from selected category
 	'brandsAvailable': value => {
-						value = helperFunctions.lowerCaseNoSpace(value)
-						let list = [];
-						for (let i=0; i<productDetails.length;i++) {
-							let brand = helperFunctions.lowerCaseNoSpace(productDetails[i].display)
-							if (brand === value && !list.includes(brand)) {
-								list.push(productDetails[i].display)
+						value = helperFunctions.lowerCaseNoSpace(value);
+						let brands = []
+						for (let i=1;i<productDetails.length;i++) {
+							let cat = helperFunctions.lowerCaseNoSpace(productDetails[i].type)
+							if(cat === value) {
+								brands.push(productDetails[i])
 							}
 						}
-
-						// compiles string from array to display as message on page
-						let noProduct = `Sorry we don't have any ${value} available right now. Please type "back"`;
-						let product = `We currently have these ${value} in stock: `;
-						let string = helperFunctions.concactString(list, noProduct, product);
-						string += "  Please type which one you'd like to explore";
-						return string
+						// remove objects from array that share the same brand/display
+						brands = helperFunctions.removeDuplicates(brands, 'display')
+						console.log(brands)
+						return brands;
 					},
 
 				  // checks to see if user is trying to view a valid product type. all other inputs return an error	
-	productTypes: function productTypes(value) {
+	productTypes: function(value) {
 						value = helperFunctions.lowerCaseNoSpace(value);
-					    let truthy
-					    for (let i=0;i<productDetails.length;i++) {
+					    let truthy;
+					    for (let i=1;i<productDetails.length;i++) {
 					    	let product = helperFunctions.lowerCaseNoSpace(productDetails[i].display)
 					    	if(product === value)
-					    		truthy = true
-					    		return truthy;
+					    		truthy = true;
 						}
 						return (truthy || value === 'back' ? true : "Sorry that is not a valid input")
 					},
 
 				   // Returns a list of products based on the type selected. User can select from list to see details	
-	'productChoice': function productChoice(previousValue) {
+	'productChoice': function(previousValue) {
 						let list = [];
 						let value = helperFunctions.lowerCaseNoSpace(previousValue);
 						for(let i=0; i<productDetails.length; i++) {
 							let name = helperFunctions.lowerCaseNoSpace(productDetails[i].display);
-								if(value === name) {
-									list.push(productDetails[i].name);
-								}
+							if(value === name) {
+								list.push(productDetails[i].name);
+							}
 						}
 						// compiles string from array to display as message on page
 						let noProduct = `Sorry we don't have any products available from ${previousValue} right now. Please type "back"`;
@@ -83,13 +79,13 @@ const helperFunctions = {
 					},
 
 					// Checks to see if user is trying to see valid project. all other inputs return error
-	inProductList: function inProductList(value) {
+	inProductList: function(value) {
 						let foundProduct = helperFunctions.findProduct(value);
 						return (foundProduct || value ==='back' ? true: "Sorry that is not a valid input");
-					},
+				   },
 
 					// Call to server to find a product. If none found sends false back to validator
-	findProduct: function findProduct(value) {
+	findProduct: function(value) {
 					value = helperFunctions.lowerCaseNoSpace(value);
 					for (let i=0;i<productDetails.length;i++) {
 						let tag = helperFunctions.lowerCaseNoSpace(productDetails[i].name);
@@ -98,7 +94,14 @@ const helperFunctions = {
 						}
 					}
 					return false
-				},
+				 },
+
+				 // removes duplicate objects based on key: value comparison
+	removeDuplicates: function(myArr, prop) {
+						    return myArr.filter((obj, pos, arr) => {
+						        return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos
+						    })
+					},
 
 	lowerCaseNoSpace: value => value.toLowerCase().replace(/ +/g, "")
 

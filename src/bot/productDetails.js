@@ -3,7 +3,7 @@ const productDetails =
 		{
 			'Phones & Tablets': "https://res-5.cloudinary.com/grover/image/upload/c_limit,h_445,w_740,q_auto,f_auto/zlpipszvdgmdpebzb0ef.png",
 			'Computers': "https://res-5.cloudinary.com/grover/image/upload/c_limit,h_445,w_740,q_auto,f_auto/dicjsrzenee5zcbmmgvd.png",
-			'Drones': "https://res-4.cloudinary.com/grover/image/upload/c_limit,h_445,w_740,q_auto,f_auto/lwuod2fmqqoay3mmpngl.png",
+			'Drones': "https://res-1.cloudinary.com/grover/image/upload/c_limit,h_445,w_740,q_auto,f_auto/tlhjdhjgns3t912zevrq.png",
 			'Gaming & VR Devices': "https://res-5.cloudinary.com/grover/image/upload/c_limit,h_445,w_740,q_auto,f_auto/fw0qujjvifpdrcpej2jb.png",
 			'Wearables': "https://res-4.cloudinary.com/grover/image/upload/c_limit,h_445,w_740,q_auto,f_auto/ms2qlfdoxihkncqlbswo.png",
 			'Smart Home Appliances': "https://res-5.cloudinary.com/grover/image/upload/c_limit,h_445,w_740,q_auto,f_auto/bjknqibgaisejpobfc45.png", 
