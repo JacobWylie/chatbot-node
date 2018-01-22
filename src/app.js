@@ -1,10 +1,11 @@
 const express    	   = require('express'),
 	  app 	     	   = express(),
 	  bodyParser 	   = require('body-parser'),
+	  cors             = require('cors'),
 	  server     	   = require('http').Server(app),
 	  productDetails   = require('./bot/productDetails'),
-	  helperFunctions  = require('./bot/functions'),
-	  cors             = require('cors');
+	  helperFunctions  = require('./bot/functions');
+	  
 	 
 
 // Parse data through body/form

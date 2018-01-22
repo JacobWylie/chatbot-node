@@ -4,9 +4,6 @@ import Categories from '../components/Categories';
 import Brands from '../components/Brands';
 import helperFunctions from './functions';
 
-
-let p
-
 const steps = [
     {
         id: '1',
@@ -16,7 +13,18 @@ const steps = [
     {
         id: '2',
         message: "First choose a category to see what's brands are available. You can type 'back' at anytime to start over.",
-        trigger: 'categories',
+        trigger: '3',
+    },
+    {
+        id: '3',
+        message: 'Type "start" and click enter!',
+        trigger: '4',
+    },
+    {
+        id: '4',
+        user: true,
+        validator: value => value.toLowerCase() === 'start' ? true : 'Type "start" and click enter!',
+        trigger: 'categories'
     },
     {
         id: "categories",
@@ -28,7 +36,7 @@ const steps = [
         id:'selectCategory',
         user: true,
         validator: value => helperFunctions.validateCategories(value),
-        trigger: ({value}) => value.toLowerCase() === 'back' ? 'back' : '4',
+        trigger: ({value}) => value.toLowerCase() === 'back' ? 'back' : 'brands',
     },
     {
         id: 'brands',
@@ -39,7 +47,7 @@ const steps = [
     {
         id: 'productTypes',
         user: true,
-        validator: value => true,
+        validator: value => helperFunctions.productTypes(value),
         trigger: ({value}) => value.toLowerCase() === 'back' ? 'back' : 'productDetails'
     },
     {
@@ -50,7 +58,7 @@ const steps = [
     {
         id: 'inProductList',
         user: true,
-        validator: value => true,
+        validator: value => helperFunctions.inProductList(value),
         trigger: ({value}) => value.toLowerCase() === 'back' ? 'back' : 'summary2'
     },
     {
@@ -71,25 +79,6 @@ const steps = [
         trigger: 'categories'
     },
 ]
-
-// function bar(value, callback) {
-//     getData(value, 'productTypes').then(x => callback(x))
-// }
-
-// function callback(x) {
-//     return x
-// }
-
-// function foo(value, id, callback) {
-//     getData(value, id).then(x=>p=x.data).then(x=>callback(x))
-// }
-
-
-
-// async function response(value, id) {
-//     let data = await getData(value, id);
-//     return data.data
-// }
 
 export default steps;
 

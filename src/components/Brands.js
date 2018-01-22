@@ -8,7 +8,8 @@ class Brands extends Component {
 
         this.state = {
             trigger: false,
-            brands: ''
+            selectCategory: '',
+            brands: undefined
         };
     }
 
@@ -16,7 +17,7 @@ class Brands extends Component {
         this.setState({ trigger: true} ,() => this.props.triggerNextStep())
     }
 
-    renderOptions() {
+    renderBrands() {
         return this.state.options.map(option => {
            return(
                 <p key ={option.label}>{option.value}</p>
@@ -25,19 +26,30 @@ class Brands extends Component {
     }
 
     componentWillMount() {
-        axios.get('http://localhost:8085/chatbot', {params: { value: null, func: "populateCategories" }})
-             .then(options => {
-                this.setState({options: options.data})
+        const { steps } = this.props;
+        const { selectCategory } = steps;
+        this.setState({ selectCategory });
+        console.log(this.state)
+        axios.get('http://localhost:8085/chatbot', {params: { value: this.state.selectCategory, func: 'brandsAvailable' }})
+             .then(brand => {
+                this.setState({brands: brand.data})
             })
     }
 
-    componentWillMount() {
-        const { steps } = this.props;
-        const { brands } = steps;
-        this.setState({ brands });
+    componentDidMount(){
+        this.triggerNext()
     }
 
     render() {
+        const { selectCategory} = this.state;
+        if(this.state.brands !== undefined) {
+            return (
+                <div className="product-details">
+                    <h3>Available Brands</h3>
+                    {this.renderBrands()}
+                </div>
+            );
+        } 
         return(
             <div className="product-details">
                 <p>...</p>
