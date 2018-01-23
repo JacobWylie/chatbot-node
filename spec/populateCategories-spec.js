@@ -1,7 +1,7 @@
 const helpers = require('../src/bot/functions');
 const productDetails = require('../src/bot/productDetails')
 
-describe("populate categories", () => {
+describe("populateCategories", () => {
 	const popCats = helpers.populateCategories;
 	it("should be defined", function() {
     	expect(popCats).toBeDefined();
