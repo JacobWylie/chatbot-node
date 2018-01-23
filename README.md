@@ -15,8 +15,8 @@
 # My solution
 
 ## Note: 
-### I've built a simliar soultion that is completely client side with no server and similiar functionality.
-### It can be found here: [https://github.com/JacobWylie/grover-chatbot](https://github.com/JacobWylie/grover-chatbot)
+#### I've built a simliar soultion that is completely client side with no server and similiar functionality.
+#### It can be found here: [https://github.com/JacobWylie/grover-chatbot](https://github.com/JacobWylie/grover-chatbot)
 
 ## Install and run locally
 
@@ -32,7 +32,7 @@ $ git clone https://github.com/JacobWylie/chatbot-node
 
 ```
 
-$ cd grover-chatbot 
+$ cd chatbot-node
 
 ```
 
@@ -52,28 +52,21 @@ $ node src/app.js
 
 ```
 
-#### Start webpack server (if browser does not automatically open, navaigate to http://localhost:3000/)
+#### Open new terminal tab and start webpack server (if browser does not automatically open, navaigate to http://localhost:3000/)
 
 ```
-
+$ cd chatbot-node
 $ npm start
 
 ```
 
 
 ### Testing Done with Jasmine
-#### CD into directory
+#### CD into directory and run test
 
 ```
 
-$ cd grover-chatbot 
-
-```
-
-#### Run Test
-
-```
-
+$ cd chatbot-node
 $ jasmine
 
 ```
