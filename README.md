@@ -12,11 +12,11 @@
 * All conversations should be recorded.
 * Code should be checked in GitHub.
 
-## My solution
+# My solution
 
-
-
-#### Live Demo: [https://jacobwylie.github.io/grover-chatbot](https://jacobwylie.github.io/grover-chatbot)
+## Note: 
+### I've built a simliar soultion that is completely client side with no server and similiar functionality.
+### It can be found here: [https://github.com/JacobWylie/grover-chatbot](https://github.com/JacobWylie/grover-chatbot)
 
 ## Install and run locally
 
@@ -24,11 +24,11 @@
 
 ```
 
-$ https://github.com/JacobWylie/grover-chatbot.git
+$ git clone https://github.com/JacobWylie/chatbot-node
 
 ```
 
-####CD into directory
+#### CD into directory
 
 ```
 
@@ -61,8 +61,8 @@ $ npm start
 ```
 
 
-###Testing Done with Jasmine
-####CD into directory
+### Testing Done with Jasmine
+#### CD into directory
 
 ```
 
@@ -70,7 +70,7 @@ $ cd grover-chatbot
 
 ```
 
-####Run Test
+#### Run Test
 
 ```
 
