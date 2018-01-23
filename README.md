@@ -17,6 +17,7 @@
 ## Note: 
 #### I've built a simliar soultion that is completely client side with no server and similiar functionality.
 #### It can be found here: [https://github.com/JacobWylie/grover-chatbot](https://github.com/JacobWylie/grover-chatbot)
+#### Thank you to [https://github.com/LucasBassetti/react-simple-chatbot](https://github.com/LucasBassetti/react-simple-chatbot) for the React chatbot components.
 
 ## Install and run locally
 
