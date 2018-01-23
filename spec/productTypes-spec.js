@@ -30,7 +30,7 @@ describe("productTypes", () => {
 
 	let truther = (truthy || value === 'back' ? true : "Sorry that is not a valid input")
 	it('should be true', () => {
-		expect(truth).toBeTruthy()
+		expect(truther).toBeTruthy()
 	})
 
 	truthy = false
