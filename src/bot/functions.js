@@ -1,5 +1,7 @@
 const productDetails = require('./productDetails');
 
+// Refactor: Create new object for userData - function UserData(categories, brands, products){this.type=brands, this.brands=brands, this.products=products}
+// Populate Object after each step and remove duplicate for loops.
 const helperFunctions = {
 
 						// populates the initial list of categories from the data set
